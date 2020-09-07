@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { APIService } from './api.service';
 import { IBeer } from '../i-beer';
 import { HttpParams } from '@angular/common/http';
+import { BeerComponent } from '../beer/beer.component';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,6 @@ export class DataService {
 
   async getNewBeer(count: number): Promise<IBeer[]> {
     return this.apiService.get(this.BEERS_URL, new HttpParams()
-    .append('per page', count.toString()));
+    .append('per page', count.toString()));;
   }
 }

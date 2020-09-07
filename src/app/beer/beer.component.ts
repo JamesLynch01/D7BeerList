@@ -19,7 +19,7 @@ export class BeerComponent implements OnInit {
     'image_url',
     'abv'
   ];
-  count = 25;
+  count = 20;
 
   dataSource: MatTableDataSource<IBeer>;
   @ViewChild(MatSort, {static: true})sort: MatSort;
@@ -33,15 +33,14 @@ async ngOnInit(): Promise<void> {
 
   this.dataSource = new MatTableDataSource(beers);
   this.dataSource = this.setupDataSource(this.dataSource);
-
   }
 
-  async newBeer(): Promise<void>{
+  async newBeer(): Promise<void> {
     this.dataSource = new MatTableDataSource(await this.dataService.getNewBeer(++this.count));
     this.dataSource = this.setupDataSource(this.dataSource);
   }
 
-  setupDataSource(dataSource: MatTableDataSource<IBeer>): MatTableDataSource<IBeer>{
+  setupDataSource(dataSource: MatTableDataSource<IBeer>): MatTableDataSource<IBeer> {
     dataSource.sort = this.sort;
     dataSource.paginator = this.paginator;
 
