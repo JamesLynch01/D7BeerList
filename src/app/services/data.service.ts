@@ -19,6 +19,6 @@ export class DataService {
 
   async getNewBeer(count: number): Promise<IBeer[]> {
     return this.apiService.get(this.BEERS_URL, new HttpParams()
-    .append('per page', count.toString()));;
+    .append('per_page', count.toString()));;
   }
 }
